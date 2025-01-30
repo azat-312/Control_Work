@@ -26,8 +26,7 @@ async def send_all_products(call: types.CallbackQuery):
                        f'Категория - {product["category"]}\n'
                        f'Артикул - {product["product_id"]}\n'
                        f'Информация о товаре - {product["info_product"]}\n'
-                       f'Цена - {product["price"]}\n'
-                       f'коллекция - {product["collection"]}\n')
+                       f'Цена - {product["price"]}\n')
 
             await call.message.answer_photo(photo=product["photo"], caption=caption)
 
@@ -37,5 +36,5 @@ async def send_all_products(call: types.CallbackQuery):
 
 
 def register_handlers(dp: Dispatcher):
-    dp.register_message_handler(start_send_products, commands=['send_store'])
+    dp.register_message_handler(start_send_products, commands=['products'])
     dp.register_callback_query_handler(send_all_products, Text(equals='send_all_products'))

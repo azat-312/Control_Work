@@ -94,6 +94,7 @@ async def submit_load(message: types.Message, state: FSMContext):
     else:
         await message.answer('Выберите да или нет')
 
+
 async def cancel_fsm(message: types.Message, state: FSMContext):
     current_state = await state.get_state()
 
